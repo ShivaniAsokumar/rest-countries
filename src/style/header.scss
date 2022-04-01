@@ -1,0 +1,18 @@
+@import 'config';
+
+.header-flex-container {
+	background-color: $dark-blue;
+	color: white;
+	padding: 35px 50px;
+	font-size: 15px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#moon {
+	margin-right: 7px;
+	font-size: 25px;
+}

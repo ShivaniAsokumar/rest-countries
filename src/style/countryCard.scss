@@ -1,0 +1,17 @@
+@import 'config.scss';
+.card-details {
+	color: white;
+}
+
+// Contains the entire card including the image and the card details
+.card-container {
+	margin-bottom: 100px;
+	border-radius: 5px;
+	background-color: $dark-blue;
+}
+
+// Contains info about a country
+.card-details {
+	width: 320px;
+	padding: 10px;
+}
