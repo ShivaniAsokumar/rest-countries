@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import CountryCard from './CountryCard';
 import { GlobalContext } from './GlobalContext';
+import { Link } from 'react-router-dom';
 import '../style/displayCountry.scss';
 
 const DisplayCountry = () => {
@@ -11,7 +12,11 @@ const DisplayCountry = () => {
 	// Maps through the array of countries, and displays them each as a Card on the page.
 	return (
 		<div className="display-flex-container">
-			{data.map((country, index) => <CountryCard key={index} className="display-flex-item" country={country} />)}
+			{data.map((country, index) => (
+				<Link key={index} to="/country-page">
+					<CountryCard className="display-flex-item" country={country} />
+				</Link>
+			))}
 		</div>
 	);
 };

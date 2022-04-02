@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Header from './Header';
 import { GlobalContext } from './GlobalContext';
 
 const CountryPage = () => {
@@ -18,9 +19,11 @@ const CountryPage = () => {
 	] = useContext(GlobalContext);
 
 	return (
-		<h3>
-			{flag}, {countryName}, {population}, {region}, {capital}
-		</h3>
+		<React.Fragment>
+			<h3>
+				{flag}, {countryName}, {population}, {region}, {capital}
+			</h3>
+		</React.Fragment>
 	);
 };
 
