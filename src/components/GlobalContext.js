@@ -8,7 +8,12 @@ export const GlobalProvider = (props) => {
 	const [ countryName, setCountryName ] = useState('');
 	const [ population, setPopulation ] = useState('');
 	const [ region, setRegion ] = useState('');
+	const [ subRegion, setSubRegion ] = useState('');
 	const [ capital, setCapital ] = useState('');
+	const [ topLevelDomain, setTopLevelDomain ] = useState('');
+	const [ currencies, setCurrencies ] = useState([]);
+	const [ languages, setLanguages ] = useState([]);
+	const [ borderCountries, setBorderCountries ] = useState([]);
 
 	return (
 		<GlobalContext.Provider
@@ -23,6 +28,16 @@ export const GlobalProvider = (props) => {
 				setPopulation,
 				region,
 				setRegion,
+				subRegion,
+				setSubRegion,
+				topLevelDomain,
+				setTopLevelDomain,
+				currencies,
+				setCurrencies,
+				languages,
+				setLanguages,
+				borderCountries,
+				setBorderCountries,
 				capital,
 				setCapital
 			]}>

@@ -16,6 +16,16 @@ const CountryCard = ({ country }) => {
 		setPopulation,
 		region,
 		setRegion,
+		subRegion,
+		setSubRegion,
+		topLevelDomain,
+		setTopLevelDomain,
+		currencies,
+		setCurrencies,
+		languages,
+		setLanguages,
+		borderCountries,
+		setBorderCountries,
 		capital,
 		setCapital
 	] = useContext(GlobalContext);
@@ -25,12 +35,17 @@ const CountryCard = ({ country }) => {
 		setCountryName(country.name);
 		setPopulation(country.population);
 		setRegion(country.region);
+		setSubRegion(country.subregion);
+		setTopLevelDomain(country.topLevelDomain);
+		setCurrencies(country.currencies);
+		setLanguages(country.languages);
+		setBorderCountries(country.borders);
 		setCapital(country.capital);
 	};
 
 	return (
 		<div className="card-container" onClick={() => handleClick(country)}>
-			<img src={country.flag} alt={country.name} />
+			<img className="home-page-flag" src={country.flag} alt={country.name} />
 			<div className="card-details">
 				<h3>{country.name}</h3>
 				<p>Population: {country.population}</p>

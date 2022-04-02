@@ -14,15 +14,33 @@ const CountryPage = () => {
 		setPopulation,
 		region,
 		setRegion,
+		subRegion,
+		setSubRegion,
+		topLevelDomain,
+		setTopLevelDomain,
+		currencies,
+		setCurrencies,
+		languages,
+		setLanguages,
+		borderCountries,
+		setBorderCountries,
 		capital,
 		setCapital
 	] = useContext(GlobalContext);
 
+	console.log(borderCountries);
+
 	return (
 		<React.Fragment>
-			<h3>
-				{flag}, {countryName}, {population}, {region}, {capital}
-			</h3>
+			<div className="country-info-container">
+				<img src={flag} alt={countryName} />
+				<div className="country-side-column">
+					<h3>{countryName}</h3>
+					<div className="country-column-left">Left</div>
+					<div className="country-column-right">Right</div>
+					<div className="border-countries">Border Countries</div>
+				</div>
+			</div>
 		</React.Fragment>
 	);
 };
