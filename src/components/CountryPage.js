@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Header from './Header';
 import { GlobalContext } from './GlobalContext';
+import { Link } from 'react-router-dom';
 import '../style/countryPage.scss';
 
 const CountryPage = () => {
@@ -33,6 +34,9 @@ const CountryPage = () => {
 
 	return (
 		<React.Fragment>
+			<Link to="/">
+				<button className="back-button">Back</button>
+			</Link>
 			<div className="country-info-container">
 				<img src={flag} alt={countryName} className="main-column-left" />
 				<div className="main-column-right">

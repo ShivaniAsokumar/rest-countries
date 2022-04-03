@@ -9,9 +9,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const App = () => {
 	return (
 		<div className="app">
-			<Header />
+			
 			<GlobalProvider>
 				<BrowserRouter>
+                    <Header />
 					<Routes>
 						<Route path="/" element={<><SearchCountry /><DisplayCountry /></>} />
 						<Route path="/country-page" element={<CountryPage />} />

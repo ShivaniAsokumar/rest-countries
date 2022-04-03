@@ -1,5 +1,16 @@
 @import 'config.scss';
 
+.back-button {
+	margin-left: 75px;
+	margin-top: 50px;
+	border: none;
+	padding: 16px 35px;
+	background-color: $dark-blue;
+	border-radius: 5px;
+	color: white;
+	box-shadow: 0 0 5px rgb(0 0 0 / 15%);
+}
+
 .country-info-container {
 	color: white;
 	display: flex;
