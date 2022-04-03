@@ -1,1 +1,50 @@
 @import 'config.scss';
+
+.country-info-container {
+	color: white;
+	display: flex;
+	margin-top: 50px;
+	margin-left: 75px;
+	font-weight: 300;
+}
+
+.title {
+	font-weight: 600;
+}
+
+.info-column-header {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.main-column-left {
+	max-width: 600px;
+	height: auto;
+	margin-right: 30px;
+}
+
+.main-column-right {
+	margin-left: 20px;
+}
+
+.info-column-container {
+	display: flex;
+	margin-bottom: 30px;
+	margin-top: 40px;
+}
+
+.info-column-left {
+	margin-right: 20px;
+}
+
+.info-column-left > p {
+	margin-bottom: 10px;
+}
+
+.info-column-right > p {
+	margin-bottom: 10px;
+}
+
+.info-column-right {
+	margin-left: 20px;
+}
