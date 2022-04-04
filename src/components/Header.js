@@ -11,7 +11,7 @@ const Header = () => {
 
 	return (
 		<div className="header-flex-container">
-			<h2 onClick={handleClick} className="header-flex-item title">
+			<h2 onClick={handleClick} className="header-flex-item header-title">
 				Where in the world?
 			</h2>
 			<p className="header-flex-item">
