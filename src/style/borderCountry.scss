@@ -1,0 +1,9 @@
+@import 'config.scss';
+
+.border-country-div {
+	background: $border-country-background;
+	width: fit-content;
+	border-radius: 5px;
+	padding: 3px 10px;
+	margin-left: 10px;
+}

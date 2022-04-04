@@ -50,7 +50,7 @@ const CountryCard = ({ country }) => {
 				<h3 id="card-details-header">{country.name}</h3>
 				<p className="card-info">
 					<span className="card-info-span">Population: </span>
-					{country.population}
+					{country.population.toLocaleString()}
 				</p>
 				<p className="card-info">
 					<span className="card-info-span">Region: </span>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Header from './Header';
 import { GlobalContext } from './GlobalContext';
 import { Link } from 'react-router-dom';
+import BorderCountry from './BorderCountry';
 import '../style/countryPage.scss';
 
 const CountryPage = () => {
@@ -26,11 +27,8 @@ const CountryPage = () => {
 		setLanguages,
 		borderCountries,
 		setBorderCountries,
-		capital,
-		setCapital
+		capital
 	] = useContext(GlobalContext);
-
-	console.log(borderCountries);
 
 	return (
 		<React.Fragment>
@@ -47,7 +45,7 @@ const CountryPage = () => {
 								<span className="title">Native Name:</span> {countryName}
 							</p>
 							<p>
-								<span className="title">Population:</span> {population}
+								<span className="title">Population:</span> {population.toLocaleString()}
 							</p>
 
 							<p>
@@ -68,10 +66,18 @@ const CountryPage = () => {
 								<span className="title">Top Level Domain:</span> {topLevelDomain}
 							</p>
 							<p>
-								<span className="title">Currencies:</span> {currencies[0].name}
+								<span className="title">Currencies:</span>{' '}
+								{currencies.map(
+									(currency, index) =>
+										index === currencies.length - 1 ? currency.name : currency.name + ', '
+								)}
 							</p>
 							<p>
-								<span className="title">Languages:</span> {languages[0].name}
+								<span className="title">Languages:</span>{' '}
+								{languages.map(
+									(language, index) =>
+										index === languages.length - 1 ? language.name : language.name + ', '
+								)}
 							</p>
 						</div>
 					</div>
@@ -79,10 +85,18 @@ const CountryPage = () => {
 					{borderCountries ? (
 						<div className="border-countries">
 							<span className="title">Border Countries: </span>
-							{borderCountries[0]}
+							{/* {borderCountries.map(
+								(borderCountry, index) =>
+									index === borderCountries.length - 1 ? borderCountry : borderCountry + ', '
+							)} */}
+							{borderCountries.map((borderCountry, index) => (
+								<BorderCountry key={index} borderCountry={borderCountry} />
+							))}
 						</div>
 					) : (
-						<div>No Borders</div>
+						<div>
+							<span className="title"> No Border Countries </span>
+						</div>
 					)}
 				</div>
 			</div>

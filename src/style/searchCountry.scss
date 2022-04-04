@@ -1,7 +1,24 @@
 @import 'config';
 
+#search-filter-container {
+	display: flex;
+	justify-content: space-between;
+}
+
 #search-div {
-	margin: 35px 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 100px;
+	width: fit-content;
+	height: 50px;
+	box-shadow: 0 0 5px rgb(0 0 0 / 15%);
+}
+
+#filter-div {
+	float: right;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-right: 100px;
 	width: fit-content;
 	height: 50px;
 	box-shadow: 0 0 5px rgb(0 0 0 / 15%);
@@ -14,7 +31,6 @@
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	padding-bottom: 10px;
-	// border: 1px solid red;
 }
 
 #search-icon {
@@ -34,9 +50,26 @@
 	border-bottom-right-radius: 5px;
 }
 
+#filter-input {
+	background-color: $dark-blue;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	border: none;
+	width: 200px;
+	border-radius: 5px;
+}
+
 #search-input::placeholder {
 	color: white;
 	font-size: 15px;
 	padding-left: 10px;
-	font-weight: 600;
+	font-weight: 400;
+}
+
+#filter-input::placeholder {
+	color: white;
+	font-size: 15px;
+	padding-left: 10px;
+	font-weight: 400;
 }

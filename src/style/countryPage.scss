@@ -59,3 +59,10 @@
 .info-column-right {
 	margin-left: 20px;
 }
+
+.border-countries {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 14px;
+}
