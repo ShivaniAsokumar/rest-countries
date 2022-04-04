@@ -1,25 +1,42 @@
 @import 'config';
+
 #search-div {
 	margin: 35px 50px;
+	width: fit-content;
+	height: 50px;
+	box-shadow: 0 0 5px rgb(0 0 0 / 15%);
 }
 
 #search-span {
 	background-color: $dark-blue;
 	font-size: 28px;
 	color: white;
-	border-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding-bottom: 10px;
+	// border: 1px solid red;
+}
+
+#search-icon {
+	margin-left: 20px;
+	position: relative;
+	top: 7px;
 }
 
 #search-input {
 	background-color: $dark-blue;
 	padding-top: 15px;
 	padding-left: 15px;
+	padding-bottom: 15px;
 	border: none;
 	width: 400px;
-	border-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 #search-input::placeholder {
 	color: white;
 	font-size: 15px;
+	padding-left: 10px;
+	font-weight: 600;
 }
