@@ -4,7 +4,8 @@ import { GlobalContext } from './GlobalContext';
 import '../style/borderCountry.scss';
 
 const BorderCountry = ({ borderCountry }) => {
-	const [ borderName, setBorderName ] = useState('');
+	// const [ borderName, setBorderName ] = useState('');
+	const [ currentCountry, setCurrentCountry ] = useState({});
 	const [
 		data,
 		setData,
@@ -26,29 +27,35 @@ const BorderCountry = ({ borderCountry }) => {
 		setLanguages,
 		borderCountries,
 		setBorderCountries,
-		capital
+		capital,
+		setCapital
 	] = useContext(GlobalContext);
 
 	useEffect(async () => {
 		await axios.get(`https://restcountries.com/v2/alpha?codes=${borderCountry}`).then((res) => {
-			console.log(res.data);
-			setBorderName(res.data[0].name);
-			// setFlag(country.flag);
-			// setCountryName(country.name);
-			// setPopulation(country.population);
-			// setRegion(country.region);
-			// setSubRegion(country.subregion);
-			// setTopLevelDomain(country.topLevelDomain);
-			// setCurrencies(country.currencies);
-			// setLanguages(country.languages);
-			// setBorderCountries(country.borders);
-			// setCapital(country.capital);
+			console.log(res.data[0]);
+			setCurrentCountry(res.data[0]);
 		});
 	}, []);
 
-	const handleBorderClick = () => {};
+	const handleBorderClick = () => {
+		setFlag(currentCountry.flag);
+		setCountryName(currentCountry.name);
+		setPopulation(currentCountry.population);
+		setRegion(currentCountry.region);
+		setSubRegion(currentCountry.subregion);
+		setTopLevelDomain(currentCountry.topLevelDomain);
+		setCurrencies(currentCountry.currencies);
+		setLanguages(currentCountry.languages);
+		setBorderCountries(currentCountry.borders);
+		setCapital(currentCountry.capital);
+	};
 
-	return <div className="border-country-div">{borderName}</div>;
+	return (
+		<div className="border-country-div" onClick={handleBorderClick}>
+			{currentCountry.name}
+		</div>
+	);
 };
 
 export default BorderCountry;
