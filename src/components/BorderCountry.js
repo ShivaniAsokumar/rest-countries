@@ -32,9 +32,12 @@ const BorderCountry = ({ borderCountry }) => {
 	] = useContext(GlobalContext);
 
 	useEffect(async () => {
-		await axios.get(`https://restcountries.com/v2/alpha?codes=${borderCountry}`).then((res) => {
-			setCurrentCountry(res.data[0]);
-		});
+		await axios
+			.get(`https://restcountries.com/v2/alpha?codes=${borderCountry}`)
+			.then((res) => {
+				setCurrentCountry(res.data[0]);
+			})
+			.catch((err) => console.log(err));
 	}, []);
 
 	const handleBorderClick = () => {

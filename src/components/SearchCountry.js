@@ -6,14 +6,18 @@ import '../style/searchCountry.scss';
 const SearchCountry = () => {
 	const [ data, setData ] = useContext(GlobalContext);
 	const [ searchInput, setSearchInput ] = useState('');
+	const [ filterToggle, setFilterToggle ] = useState(false);
 
 	useEffect(async () => {
-		await axios.get('https://restcountries.com/v2/all').then((res) => {
-			setData(res.data);
-		});
+		await axios
+			.get('https://restcountries.com/v2/all')
+			.then((res) => {
+				setData(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}, []);
-
-	// TODO: On input change, make api call with partial name. Get the result data, setData(resultData). Create another function handleInputChange that takes care of this. This function will make the api call. This function is triggered each time there is a change in the input. Changing data will automatically change DisplayCountry page.
 
 	const handleInputChange = async (inputVal) => {
 		console.log(inputVal);
@@ -26,6 +30,20 @@ const SearchCountry = () => {
 				.catch((err) => console.log('ERROR'));
 		}
 	};
+
+	const handleFilterButtonClick = () => {
+		setFilterToggle(!filterToggle);
+	};
+
+	const handleFilterOptionClick = async (region) => {
+		await axios
+			.get(`https://restcountries.com/v2/continent/${region}`)
+			.then((res) => {
+				console.log(res.data);
+			})
+			.catch((err) => console.log('ERROR'));
+	};
+
 	return (
 		<div id="search-filter-container">
 			<div id="search-div">
@@ -40,8 +58,22 @@ const SearchCountry = () => {
 				/>
 			</div>
 			<div id="filter-div">
-				<input id="filter-input" type="text" placeholder="Filter by Region" />
+				<button id="filter-button" onClick={handleFilterButtonClick}>
+					Filter by Region
+				</button>
+				<ul className="filter-list" hidden={filterToggle ? 'hidden' : ''}>
+					<li onClick={() => handleFilterOptionClick('Africa')} className="filter-option">
+						Africa
+					</li>
+					<li className="filter-option">America</li>
+					<li className="filter-option">Asia</li>
+					<li className="filter-option">Europe</li>
+					<li className="filter-option">Oceania</li>
+				</ul>
 			</div>
+			{/* <div id="filter-div">
+				<input id="filter-input" type="text" placeholder="Filter by Region" />
+			</div> */}
 		</div>
 	);
 };
