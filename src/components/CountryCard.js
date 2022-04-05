@@ -43,11 +43,20 @@ const CountryCard = ({ country }) => {
 		setCapital(country.capital);
 	};
 
+	const countryNameFormatter = (originalName) => {
+		let index = originalName.indexOf('(');
+		if (index !== -1) {
+			return originalName.substring(0, index);
+		}
+	};
+
 	return (
 		<div className="card-container" onClick={() => handleClick(country)}>
 			<img className="home-page-flag" src={country.flag} alt={country.name} />
 			<div className="card-details">
-				<h3 id="card-details-header">{country.name}</h3>
+				<h3 id="card-details-header">
+					{country.name.includes('(') ? country.name.substring(0, country.name.indexOf('(')) : country.name}
+				</h3>
 				<p className="card-info">
 					<span className="card-info-span">Population: </span>
 					{country.population.toLocaleString()}

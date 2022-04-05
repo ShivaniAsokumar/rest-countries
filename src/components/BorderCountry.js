@@ -33,14 +33,18 @@ const BorderCountry = ({ borderCountry }) => {
 
 	useEffect(async () => {
 		await axios.get(`https://restcountries.com/v2/alpha?codes=${borderCountry}`).then((res) => {
-			console.log(res.data[0]);
 			setCurrentCountry(res.data[0]);
 		});
 	}, []);
 
 	const handleBorderClick = () => {
 		setFlag(currentCountry.flag);
-		setCountryName(currentCountry.name);
+		if (currentCountry.name.includes('(')) {
+			setCountryName(currentCountry.name.substring(0, currentCountry.name.indexOf('(')));
+		} else {
+			setCountryName(currentCountry.name);
+		}
+
 		setPopulation(currentCountry.population);
 		setRegion(currentCountry.region);
 		setSubRegion(currentCountry.subregion);
@@ -53,7 +57,13 @@ const BorderCountry = ({ borderCountry }) => {
 
 	return (
 		<div className="border-country-div" onClick={handleBorderClick}>
-			{currentCountry.name}
+			{currentCountry.name ? currentCountry.name.includes('(') ? (
+				currentCountry.name.substring(0, currentCountry.name.indexOf('('))
+			) : (
+				currentCountry.name
+			) : (
+				currentCountry.name
+			)}
 		</div>
 	);
 };
