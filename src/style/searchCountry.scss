@@ -1,11 +1,28 @@
 @import 'config';
 
+.light-mode {
+	background: white !important;
+	border-radius: 5px;
+	color: rgb(17, 21, 23) !important;
+}
+
+.light-mode::placeholder {
+	color: rgb(17, 21, 23) !important;
+}
+
+.light-mode:focus {
+	color: rgb(17, 21, 23);
+	font-size: 15px;
+	padding-left: 10px;
+	font-weight: 400;
+}
+
 #search-filter-container {
 	display: flex;
 	justify-content: space-between;
 }
 
-#search-div {
+.search-div {
 	margin-top: 50px;
 	margin-bottom: 50px;
 	margin-left: 100px;
@@ -14,7 +31,7 @@
 	box-shadow: 0 0 5px rgb(0 0 0 / 15%);
 }
 
-#filter-div {
+.filter-div {
 	float: right;
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -40,7 +57,7 @@
 	padding-bottom: 20px;
 }
 
-#search-span {
+.search-span {
 	background-color: $dark-blue;
 	font-size: 28px;
 	color: white;
@@ -55,7 +72,7 @@
 	top: 7px;
 }
 
-#search-input {
+.search-input {
 	background-color: $dark-blue;
 	padding-top: 15px;
 	padding-left: 15px;
@@ -66,7 +83,7 @@
 	border-bottom-right-radius: 5px;
 }
 
-#filter-button {
+.filter-button {
 	background-color: $dark-blue;
 	color: white;
 	padding-top: 15px;
@@ -79,16 +96,16 @@
 	padding-left: 20px;
 }
 
-#search-input::placeholder {
+.search-input::placeholder {
 	color: white;
 	font-size: 15px;
 	padding-left: 10px;
 	font-weight: 400;
 }
 
-// #filter-input::placeholder {
-// 	color: white;
-// 	font-size: 15px;
-// 	padding-left: 10px;
-// 	font-weight: 400;
-// }
+.search-input:focus {
+	color: white;
+	font-size: 15px;
+	font-weight: 400;
+	outline: none;
+}

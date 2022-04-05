@@ -1,24 +1,65 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import { GlobalContext } from './GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import '../style/header.scss';
 
 const Header = () => {
+	const [
+		data,
+		setData,
+		flag,
+		setFlag,
+		countryName,
+		setCountryName,
+		population,
+		setPopulation,
+		region,
+		setRegion,
+		subRegion,
+		setSubRegion,
+		topLevelDomain,
+		setTopLevelDomain,
+		currencies,
+		setCurrencies,
+		languages,
+		setLanguages,
+		borderCountries,
+		setBorderCountries,
+		capital,
+		setCapital,
+		lightModeToggle,
+		setLightModeToggle,
+		colorTheme,
+		setColorTheme
+	] = useContext(GlobalContext);
+
 	let navigate = useNavigate();
 
 	const handleClick = () => {
 		navigate('/');
 	};
 
+	const handleModeClick = () => {
+		setLightModeToggle(!lightModeToggle);
+		if (!lightModeToggle) {
+			setColorTheme('light-mode');
+			document.body.style = 'background: white;';
+		} else {
+			setColorTheme('dark-mode');
+			document.body.style = 'background: #202c37;';
+		}
+	};
+
 	return (
-		<div className="header-flex-container">
+		<div className={`header-flex-container ${colorTheme}`}>
 			<h2 onClick={handleClick} className="header-flex-item header-title">
 				Where in the world?
 			</h2>
-			<p className="header-flex-item">
-				<span id="moon">
-					<i className="fa-solid fa-moon" />
+			<p className="header-flex-item" onClick={handleModeClick}>
+				<span className="moon">
+					<i className={`fa-solid fa-${colorTheme === 'light-mode' ? 'sun' : 'moon'}`} />
 				</span>
-				Dark Mode
+				{colorTheme === 'light-mode' ? <span>Light Mode</span> : <span>Dark Mode</span>}
 			</p>
 		</div>
 	);

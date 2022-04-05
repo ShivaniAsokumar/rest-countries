@@ -4,9 +4,36 @@ import axios from 'axios';
 import '../style/searchCountry.scss';
 
 const SearchCountry = () => {
-	const [ data, setData ] = useContext(GlobalContext);
+	const [
+		data,
+		setData,
+		flag,
+		setFlag,
+		countryName,
+		setCountryName,
+		population,
+		setPopulation,
+		region,
+		setRegion,
+		subRegion,
+		setSubRegion,
+		topLevelDomain,
+		setTopLevelDomain,
+		currencies,
+		setCurrencies,
+		languages,
+		setLanguages,
+		borderCountries,
+		setBorderCountries,
+		capital,
+		setCapital,
+		lightModeToggle,
+		setLightModeToggle,
+		colorTheme,
+		setColorTheme
+	] = useContext(GlobalContext);
 	const [ searchInput, setSearchInput ] = useState('');
-	const [ filterToggle, setFilterToggle ] = useState(false);
+	const [ filterToggle, setFilterToggle ] = useState(true);
 
 	useEffect(async () => {
 		await axios
@@ -33,6 +60,7 @@ const SearchCountry = () => {
 
 	const handleFilterButtonClick = () => {
 		setFilterToggle(!filterToggle);
+		console.log(colorTheme);
 	};
 
 	const handleFilterOptionClick = async (region) => {
@@ -46,34 +74,31 @@ const SearchCountry = () => {
 
 	return (
 		<div id="search-filter-container">
-			<div id="search-div">
-				<span id="search-span">
+			<div className={`search-div ${colorTheme}`}>
+				<span className={`search-span ${colorTheme}`}>
 					<i id="search-icon" className="fa-solid fa-magnifying-glass fa-xs" />
 				</span>
 				<input
-					id="search-input"
+					className={`search-input ${colorTheme}`}
 					type="text"
 					placeholder="Search for a country..."
 					onChange={(e) => handleInputChange(e.target.value)}
 				/>
 			</div>
-			<div id="filter-div">
-				<button id="filter-button" onClick={handleFilterButtonClick}>
+			<div className={`filter-div ${colorTheme}`}>
+				<button className={`filter-button ${colorTheme}`} onClick={handleFilterButtonClick}>
 					Filter by Region
 				</button>
-				<ul className="filter-list" hidden={filterToggle ? 'hidden' : ''}>
-					<li onClick={() => handleFilterOptionClick('Africa')} className="filter-option">
+				<ul className={`filter-list ${colorTheme}`} hidden={filterToggle ? 'hidden' : ''}>
+					<li onClick={() => handleFilterOptionClick('africa')} className={`filter-option ${colorTheme}`}>
 						Africa
 					</li>
-					<li className="filter-option">America</li>
-					<li className="filter-option">Asia</li>
-					<li className="filter-option">Europe</li>
-					<li className="filter-option">Oceania</li>
+					<li className={`filter-option ${colorTheme}`}>America</li>
+					<li className={`filter-option ${colorTheme}`}>Asia</li>
+					<li className={`filter-option ${colorTheme}`}>Europe</li>
+					<li className={`filter-option ${colorTheme}`}>Oceania</li>
 				</ul>
 			</div>
-			{/* <div id="filter-div">
-				<input id="filter-input" type="text" placeholder="Filter by Region" />
-			</div> */}
 		</div>
 	);
 };

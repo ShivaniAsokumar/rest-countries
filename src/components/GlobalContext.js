@@ -14,6 +14,8 @@ export const GlobalProvider = (props) => {
 	const [ currencies, setCurrencies ] = useState([]);
 	const [ languages, setLanguages ] = useState([]);
 	const [ borderCountries, setBorderCountries ] = useState([]);
+	const [ lightModeToggle, setLightModeToggle ] = useState(false);
+	const [ colorTheme, setColorTheme ] = useState('dark-mode');
 
 	return (
 		<GlobalContext.Provider
@@ -39,7 +41,11 @@ export const GlobalProvider = (props) => {
 				borderCountries,
 				setBorderCountries,
 				capital,
-				setCapital
+				setCapital,
+				lightModeToggle,
+				setLightModeToggle,
+				colorTheme,
+				setColorTheme
 			]}>
 			{props.children}
 		</GlobalContext.Provider>

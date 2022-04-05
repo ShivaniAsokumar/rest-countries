@@ -27,7 +27,11 @@ const CountryCard = ({ country }) => {
 		borderCountries,
 		setBorderCountries,
 		capital,
-		setCapital
+		setCapital,
+		lightModeToggle,
+		setLightModeToggle,
+		colorTheme,
+		setColorTheme
 	] = useContext(GlobalContext);
 
 	const handleClick = (country) => {
@@ -51,9 +55,9 @@ const CountryCard = ({ country }) => {
 	};
 
 	return (
-		<div className="card-container" onClick={() => handleClick(country)}>
+		<div className={`card-container ${colorTheme}`} onClick={() => handleClick(country)}>
 			<img className="home-page-flag" src={country.flag} alt={country.name} />
-			<div className="card-details">
+			<div className={`card-details ${colorTheme}`}>
 				<h3 id="card-details-header">
 					{country.name.includes('(') ? country.name.substring(0, country.name.indexOf('(')) : country.name}
 				</h3>

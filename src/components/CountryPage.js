@@ -27,17 +27,22 @@ const CountryPage = () => {
 		setLanguages,
 		borderCountries,
 		setBorderCountries,
-		capital
+		capital,
+		setCapital,
+		lightModeToggle,
+		setLightModeToggle,
+		colorTheme,
+		setColorTheme
 	] = useContext(GlobalContext);
 
 	return (
 		<React.Fragment>
 			<Link to="/">
-				<button className="back-button">Back</button>
+				<button className={`back-button ${colorTheme}`}>Back</button>
 			</Link>
 			<div className="country-info-container">
 				<img src={flag} alt={countryName} className="main-column-left" />
-				<div className="main-column-right">
+				<div className={`main-column-right ${colorTheme}`}>
 					<h2 className="info-column-header">{countryName}</h2>
 					<div className="info-column-container">
 						<div className="info-column-left">

@@ -28,7 +28,11 @@ const BorderCountry = ({ borderCountry }) => {
 		borderCountries,
 		setBorderCountries,
 		capital,
-		setCapital
+		setCapital,
+		lightModeToggle,
+		setLightModeToggle,
+		colorTheme,
+		setColorTheme
 	] = useContext(GlobalContext);
 
 	useEffect(async () => {
@@ -59,7 +63,10 @@ const BorderCountry = ({ borderCountry }) => {
 	};
 
 	return (
-		<div className="border-country-div" onClick={handleBorderClick}>
+		<div
+			className={`border-country-div ${colorTheme}`}
+			onClick={handleBorderClick}
+			style={colorTheme === 'light-mode' ? { boxShadow: '0 0 5px rgb(0 0 0 / 15%)' } : {}}>
 			{currentCountry.name ? currentCountry.name.includes('(') ? (
 				currentCountry.name.substring(0, currentCountry.name.indexOf('('))
 			) : (
