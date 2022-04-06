@@ -79,9 +79,13 @@ const CountryPage = () => {
 							</p>
 							<p>
 								<span className="title">Currencies:</span>{' '}
-								{currencies.map(
-									(currency, index) =>
-										index === currencies.length - 1 ? currency.name : currency.name + ', '
+								{currencies ? (
+									currencies.map(
+										(currency, index) =>
+											index === currencies.length - 1 ? currency.name : currency.name + ', '
+									)
+								) : (
+									'None'
 								)}
 							</p>
 							<p>

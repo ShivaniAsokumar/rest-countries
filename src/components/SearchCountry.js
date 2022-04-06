@@ -68,10 +68,16 @@ const SearchCountry = () => {
 	};
 
 	const handleFilterOptionClick = async (region) => {
+		setFilterToggle(!filterToggle);
+		let resultData;
 		await axios
-			.get(`https://restcountries.com/v2/continent/${region}`)
+			.get(`https://restcountries.com/v2/all`)
 			.then((res) => {
-				console.log(res.data);
+				resultData = res.data;
+				console.log(resultData);
+
+				let filteredCountries = resultData.filter((country) => country.region === region);
+				setData(filteredCountries);
 			})
 			.catch((err) => console.log('ERROR'));
 	};
@@ -94,13 +100,21 @@ const SearchCountry = () => {
 					Filter by Region
 				</button>
 				<ul className={`filter-list ${colorTheme}`} hidden={filterToggle ? 'hidden' : ''}>
-					<li onClick={() => handleFilterOptionClick('africa')} className={`filter-option ${colorTheme}`}>
+					<li onClick={() => handleFilterOptionClick('Africa')} className={`filter-option ${colorTheme}`}>
 						Africa
 					</li>
-					<li className={`filter-option ${colorTheme}`}>America</li>
-					<li className={`filter-option ${colorTheme}`}>Asia</li>
-					<li className={`filter-option ${colorTheme}`}>Europe</li>
-					<li className={`filter-option ${colorTheme}`}>Oceania</li>
+					<li onClick={() => handleFilterOptionClick('Americas')} className={`filter-option ${colorTheme}`}>
+						America
+					</li>
+					<li onClick={() => handleFilterOptionClick('Asia')} className={`filter-option ${colorTheme}`}>
+						Asia
+					</li>
+					<li onClick={() => handleFilterOptionClick('Europe')} className={`filter-option ${colorTheme}`}>
+						Europe
+					</li>
+					<li onClick={() => handleFilterOptionClick('Oceania')} className={`filter-option ${colorTheme}`}>
+						Oceania
+					</li>
 				</ul>
 			</div>
 		</div>

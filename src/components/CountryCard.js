@@ -44,7 +44,11 @@ const CountryCard = ({ country }) => {
 		setCurrencies(country.currencies);
 		setLanguages(country.languages);
 		setBorderCountries(country.borders);
-		setCapital(country.capital);
+		if (country.capital) {
+			setCapital(country.capital);
+		} else {
+			setCapital('None');
+		}
 	};
 
 	const countryNameFormatter = (originalName) => {
@@ -58,7 +62,7 @@ const CountryCard = ({ country }) => {
 		<div className={`card-container ${colorTheme}`} onClick={() => handleClick(country)}>
 			<img className="home-page-flag" src={country.flag} alt={country.name} />
 			<div className={`card-details ${colorTheme}`}>
-				<h3 id="card-details-header">
+				<h3 className="card-details-header">
 					{country.name.includes('(') ? country.name.substring(0, country.name.indexOf('(')) : country.name}
 				</h3>
 				<p className="card-info">
@@ -71,7 +75,7 @@ const CountryCard = ({ country }) => {
 				</p>
 				<p className="card-info">
 					<span className="card-info-span">Capital: </span>
-					{country.capital}
+					{country.capital ? country.capital : 'None'}
 				</p>
 			</div>
 		</div>
