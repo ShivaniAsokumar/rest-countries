@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Header from './Header';
 import { GlobalContext } from './GlobalContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BorderCountry from './BorderCountry';
 import '../style/countryPage.scss';
 
@@ -35,11 +35,18 @@ const CountryPage = () => {
 		setColorTheme
 	] = useContext(GlobalContext);
 
+	let navigate = useNavigate();
+	const handleBackButtonClick = () => {
+		navigate(-1);
+	};
+
 	return (
 		<React.Fragment>
-			<Link to="/">
-				<button className={`back-button ${colorTheme}`}>Back</button>
-			</Link>
+			{/* <Link to="/"> */}
+			<button className={`back-button ${colorTheme}`} onClick={handleBackButtonClick}>
+				Back
+			</button>
+			{/* </Link> */}
 			<div className="country-info-container">
 				<img src={flag} alt={countryName} className="main-column-left" />
 				<div className={`main-column-right ${colorTheme}`}>

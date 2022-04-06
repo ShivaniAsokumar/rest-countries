@@ -35,15 +35,19 @@ const SearchCountry = () => {
 	const [ searchInput, setSearchInput ] = useState('');
 	const [ filterToggle, setFilterToggle ] = useState(true);
 
-	useEffect(async () => {
-		await axios
-			.get('https://restcountries.com/v2/all')
-			.then((res) => {
-				setData(res.data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+	useEffect(() => {
+		const fetchData = async () => {
+			await axios
+				.get('https://restcountries.com/v2/all')
+				.then((res) => {
+					setData(res.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		};
+
+		fetchData();
 	}, []);
 
 	const handleInputChange = async (inputVal) => {

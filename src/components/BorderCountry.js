@@ -6,6 +6,7 @@ import '../style/borderCountry.scss';
 const BorderCountry = ({ borderCountry }) => {
 	// const [ borderName, setBorderName ] = useState('');
 	const [ currentCountry, setCurrentCountry ] = useState({});
+
 	const [
 		data,
 		setData,
