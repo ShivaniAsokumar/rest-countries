@@ -35,14 +35,21 @@ const BorderCountry = ({ borderCountry }) => {
 		colorTheme
 	] = useContext(GlobalContext);
 
-	useEffect(async () => {
-		await axios
-			.get(`https://restcountries.com/v2/alpha?codes=${borderCountry}`)
-			.then((res) => {
-				setCurrentCountry(res.data[0]);
-			})
-			.catch((err) => console.log(err));
-	}, []);
+	useEffect(
+		async () => {
+			const fetchData = async () => {
+				await axios
+					.get(`https://restcountries.com/v2/alpha?codes=${borderCountry}`)
+					.then((res) => {
+						setCurrentCountry(res.data[0]);
+					})
+					.catch((err) => console.log(err));
+			};
+
+			fetchData();
+		},
+		[ borderCountry ]
+	);
 
 	const handleBorderClick = () => {
 		setFlag(currentCountry.flag);

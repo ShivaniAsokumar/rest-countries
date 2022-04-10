@@ -7,20 +7,23 @@ const SearchCountry = () => {
 	const [ , setData, , , , , , , , , , , , , , , , , , , , , , , colorTheme ] = useContext(GlobalContext);
 	const [ filterToggle, setFilterToggle ] = useState(true);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			await axios
-				.get('https://restcountries.com/v2/all')
-				.then((res) => {
-					setData(res.data);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
-		};
+	useEffect(
+		() => {
+			const fetchData = async () => {
+				await axios
+					.get('https://restcountries.com/v2/all')
+					.then((res) => {
+						setData(res.data);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+			};
 
-		fetchData();
-	}, []);
+			fetchData();
+		},
+		[ setData ]
+	);
 
 	const handleInputChange = async (inputVal) => {
 		console.log(inputVal);

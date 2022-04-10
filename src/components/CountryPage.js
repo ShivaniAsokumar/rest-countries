@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import Header from './Header';
 import { GlobalContext } from './GlobalContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import BorderCountry from './BorderCountry';
 import '../style/countryPage.scss';
 
