@@ -7,13 +7,27 @@ const SearchCountry = () => {
 	const [ , setData, , , , , , , , , , , , , , , , , , , , , , , colorTheme ] = useContext(GlobalContext);
 	const [ filterToggle, setFilterToggle ] = useState(true);
 
+	const compare = (countryA, countryB) => {
+		const popA = countryA.population;
+		const popB = countryB.population;
+
+		let comparison = 0;
+		if (popA > popB) {
+			comparison = 1;
+		} else if (popA < popB) {
+			comparison = -1;
+		}
+		return comparison * -1;
+	};
+
 	useEffect(
 		() => {
 			const fetchData = async () => {
 				await axios
 					.get('https://restcountries.com/v2/all')
 					.then((res) => {
-						setData(res.data);
+						console.log(res.data);
+						setData(res.data.sort(compare));
 					})
 					.catch((err) => {
 						console.log(err);
