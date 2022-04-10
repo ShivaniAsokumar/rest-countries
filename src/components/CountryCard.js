@@ -6,32 +6,31 @@ import '../style/countryCard.scss';
 
 const CountryCard = ({ country }) => {
 	const [
-		data,
-		setData,
-		flag,
+		,
+		,
+		,
 		setFlag,
-		countryName,
+		,
 		setCountryName,
-		population,
+		,
 		setPopulation,
-		region,
+		,
 		setRegion,
-		subRegion,
+		,
 		setSubRegion,
-		topLevelDomain,
+		,
 		setTopLevelDomain,
-		currencies,
+		,
 		setCurrencies,
-		languages,
+		,
 		setLanguages,
-		borderCountries,
+		,
 		setBorderCountries,
-		capital,
+		,
 		setCapital,
-		lightModeToggle,
-		setLightModeToggle,
-		colorTheme,
-		setColorTheme
+		,
+		,
+		colorTheme
 	] = useContext(GlobalContext);
 
 	const handleClick = (country) => {
@@ -48,13 +47,6 @@ const CountryCard = ({ country }) => {
 			setCapital(country.capital);
 		} else {
 			setCapital('None');
-		}
-	};
-
-	const countryNameFormatter = (originalName) => {
-		let index = originalName.indexOf('(');
-		if (index !== -1) {
-			return originalName.substring(0, index);
 		}
 	};
 

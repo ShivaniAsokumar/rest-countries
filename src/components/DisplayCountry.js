@@ -7,7 +7,7 @@ import '../style/displayCountry.scss';
 const DisplayCountry = () => {
 	// TODO: Build a Card component. Pass down props into Card component. Iterate through data and display card component on the page.
 
-	const [ data, setData ] = useContext(GlobalContext);
+	const [ data ] = useContext(GlobalContext);
 
 	// Maps through the array of countries, and displays them each as a Card on the page.
 	return (

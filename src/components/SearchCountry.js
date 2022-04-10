@@ -4,35 +4,7 @@ import axios from 'axios';
 import '../style/searchCountry.scss';
 
 const SearchCountry = () => {
-	const [
-		data,
-		setData,
-		flag,
-		setFlag,
-		countryName,
-		setCountryName,
-		population,
-		setPopulation,
-		region,
-		setRegion,
-		subRegion,
-		setSubRegion,
-		topLevelDomain,
-		setTopLevelDomain,
-		currencies,
-		setCurrencies,
-		languages,
-		setLanguages,
-		borderCountries,
-		setBorderCountries,
-		capital,
-		setCapital,
-		lightModeToggle,
-		setLightModeToggle,
-		colorTheme,
-		setColorTheme
-	] = useContext(GlobalContext);
-	const [ searchInput, setSearchInput ] = useState('');
+	const [ , setData, , , , , , , , , , , , , , , , , , , , , , , colorTheme ] = useContext(GlobalContext);
 	const [ filterToggle, setFilterToggle ] = useState(true);
 
 	useEffect(() => {

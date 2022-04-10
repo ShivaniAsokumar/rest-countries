@@ -8,32 +8,31 @@ const BorderCountry = ({ borderCountry }) => {
 	const [ currentCountry, setCurrentCountry ] = useState({});
 
 	const [
-		data,
-		setData,
-		flag,
+		,
+		,
+		,
 		setFlag,
-		countryName,
+		,
 		setCountryName,
-		population,
+		,
 		setPopulation,
-		region,
+		,
 		setRegion,
-		subRegion,
+		,
 		setSubRegion,
-		topLevelDomain,
+		,
 		setTopLevelDomain,
-		currencies,
+		,
 		setCurrencies,
-		languages,
+		,
 		setLanguages,
-		borderCountries,
+		,
 		setBorderCountries,
-		capital,
+		,
 		setCapital,
-		lightModeToggle,
-		setLightModeToggle,
-		colorTheme,
-		setColorTheme
+		,
+		,
+		colorTheme
 	] = useContext(GlobalContext);
 
 	useEffect(async () => {
