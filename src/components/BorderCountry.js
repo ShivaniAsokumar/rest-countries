@@ -36,7 +36,7 @@ const BorderCountry = ({ borderCountry }) => {
 	] = useContext(GlobalContext);
 
 	useEffect(
-		async () => {
+		() => {
 			const fetchData = async () => {
 				await axios
 					.get(`https://restcountries.com/v2/alpha?codes=${borderCountry}`)
