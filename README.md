@@ -13,18 +13,18 @@ This app pulls country data by sending requests to the [REST Countries API](http
 4. Navigate to `http://localhost:3000` to use the app
 
 ### Features
-1. Search for a country...
+#### 1. Search for a country...
   * User can search for a specific country and that country's card will be displayed
-2. Filter by Region
+#### 2. Filter by Region
   * Initially, the countries are displayed in order of population. 
   * User can filter countries by region so that only countries from that specific region are displayed
   * The regions are: Africa, America, Asia, Europe, Oceania
-3. View Card
+#### 3. View Card
   * User can view the individual cards for any country. 
   * This displays more data about the country including its `Border Countries`
-4. View `Border Countries`
+#### 4. View `Border Countries`
   * User can click on any border country and that country's card will be displayed
-4. Light/Dark Mode
+#### 5. Light/Dark Mode
   * User can switch between Light and Dark modes
 
 ### What I learned
